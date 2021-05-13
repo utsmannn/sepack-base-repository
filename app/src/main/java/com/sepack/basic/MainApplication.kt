@@ -1,7 +1,21 @@
 package com.sepack.basic
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.sepack.basic.module.MainModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
-@HiltAndroidApp
-class MainApplication : Application()
+class MainApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidContext(this@MainApplication)
+            modules(
+                MainModule.provideSource(),
+                MainModule.provideRepository(),
+                MainModule.provideViewModel()
+            )
+        }
+    }
+}

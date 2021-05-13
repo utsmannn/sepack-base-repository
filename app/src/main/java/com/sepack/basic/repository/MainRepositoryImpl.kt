@@ -3,9 +3,8 @@ package com.sepack.basic.repository
 import com.sepack.basic.source.Source
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import javax.inject.Inject
 
-class MainRepositoryImpl @Inject constructor(private val source: Source) : MainRepository {
+class MainRepositoryImpl (private val source: Source) : MainRepository {
 
     private val _hello: MutableStateFlow<Result<String>> = MutableStateFlow(Result.success(""))
 
