@@ -7,7 +7,9 @@ import android.viewbinding.library.activity.viewBinding
 import androidx.activity.viewModels
 import com.sepack.basic.databinding.ActivityMainBinding
 import com.sepack.basic.viewModel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels()
